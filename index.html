@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>영수증 발급</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 입력 폼 영역 (인쇄 시 숨김) -->
+    <section class="form-panel no-print">
+      <h2>영수증 정보 입력</h2>
+      <div class="template-group">
+        <span class="template-label">템플릿:</span>
+        <button type="button" id="btn-tpl-reboot" class="btn-secondary">리부트 아카데미</button>
+        <button type="button" id="btn-tpl-kim" class="btn-secondary">김조교</button>
+      </div>
+      <div class="form-group">
+        <label for="input-provider">공급자</label>
+        <input type="text" id="input-provider" placeholder="예: OO 레슨 스튜디오 / 홍길동">
+      </div>
+      <div class="form-group">
+        <label for="input-member">회원명</label>
+        <input type="text" id="input-member" placeholder="예: 김철수">
+      </div>
+      <div class="form-group">
+        <label for="input-cost">비용</label>
+        <input type="text" id="input-cost" placeholder="예: 300,000원">
+      </div>
+      <div class="form-group">
+        <label for="input-service">서비스명</label>
+        <input type="text" id="input-service" placeholder="예: 10월 개인 레슨 (주 2회)">
+      </div>
+      <div class="form-group">
+        <label for="input-payment">결제 방식</label>
+        <input type="text" id="input-payment" placeholder="예: 계좌이체 / 카드결제">
+      </div>
+      <div class="form-group">
+        <label for="input-etc-text">기타 (텍스트)</label>
+        <textarea id="input-etc-text" rows="3" placeholder="예: 발행일, 비고, 환급 증빙용 메모 등"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="input-etc-image">기타 (이미지 첨부)</label>
+        <input type="file" id="input-etc-image" accept="image/*" multiple>
+        <button type="button" id="btn-clear-images" class="btn-secondary" style="display: none;">첨부 이미지 모두 삭제</button>
+      </div>
+      <div class="actions">
+        <button type="button" id="btn-print" class="btn-primary">인쇄 / PDF 저장</button>
+      </div>
+    </section>
+
+    <!-- 영수증 출력 영역 -->
+    <section class="receipt-wrapper">
+      <div class="receipt" id="receipt">
+        <h1 class="receipt-title">영 수 증</h1>
+        <table class="receipt-table">
+          <tbody>
+            <tr>
+              <th>공급자</th>
+              <td id="view-provider"></td>
+            </tr>
+            <tr>
+              <th>회원명</th>
+              <td id="view-member"></td>
+            </tr>
+            <tr>
+              <th>비용</th>
+              <td id="view-cost"></td>
+            </tr>
+            <tr>
+              <th>서비스명</th>
+              <td id="view-service"></td>
+            </tr>
+            <tr>
+              <th>결제 방식</th>
+              <td id="view-payment"></td>
+            </tr>
+            <tr>
+              <th>기타</th>
+              <td id="view-etc">
+                <div id="view-etc-text" class="etc-text"></div>
+                <div id="view-etc-images" class="etc-images"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

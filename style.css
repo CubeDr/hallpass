@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: #000;
+  background-color: #f5f5f5;
+  padding: 24px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* 입력 패널 */
+.form-panel {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.form-panel h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #000;
+}
+
+.template-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.template-label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.template-group .btn-secondary {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid #999;
+}
+
+.form-group input[type="file"] {
+  font-size: 13px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+/* 영수증 영역 (별다른 디자인 없는 단정한 표 형태) */
+.receipt-wrapper {
+  flex: 1.2;
+}
+
+.receipt {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 32px 28px;
+}
+
+.receipt-title {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 8px;
+  margin-bottom: 24px;
+}
+
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.receipt-table th,
+.receipt-table td {
+  border: 1px solid #000;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  vertical-align: middle;
+  word-break: break-all;
+}
+
+.receipt-table th {
+  width: 120px;
+  text-align: left;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.receipt-table td {
+  min-height: 44px;
+}
+
+.etc-text {
+  white-space: pre-wrap;
+}
+
+.etc-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.etc-text:not(:empty) + .etc-images:not(:empty) {
+  margin-top: 12px;
+}
+
+.etc-images img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .form-panel,
+  .receipt-wrapper {
+    width: 100%;
+  }
+}
+
+/* 인쇄 및 PDF 저장 시 영수증만 깔끔하게 출력 */
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .container {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .receipt-wrapper {
+    width: 100%;
+  }
+}
